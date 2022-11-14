@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZDCSDGW_VBR_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="Vbrk" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="청구번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DelId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="납품번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vdatu" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="납품일" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fkdat" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="청구일" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Netwr" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:unit="Waers" sap:label="판매오더정가" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="통화" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <Property Name="Vkorg" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="영업조직" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Bzirk" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="판매구역" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="판매처" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="VbrpA" Relationship="ZDCSDGW_VBR_SRV.Vbrk_Vbrp" FromRole="FromRole_Vbrk_Vbrp" ToRole="ToRole_Vbrk_Vbrp"/>
+            </EntityType>
+            <EntityType Name="Vbrp" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Vbeln"/>
+                    <PropertyRef Name="Posnr"/>
+                </Key>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="청구번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Posnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="품목번호" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fertid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="제품 코드" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fertname" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="제품 명" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fkdat" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="청구일" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fkimg" Type="Edm.String" Nullable="false" MaxLength="13" sap:unicode="false" sap:unit="Meins" sap:label="수량" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="단위" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="unit-of-measure"/>
+                <Property Name="Netwr" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:unit="Waers" sap:label="오더품목정가" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Total" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:unit="Waers" sap:label="총가격" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="통화" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false" sap:semantics="currency-code"/>
+                <NavigationProperty Name="VbrkA" Relationship="ZDCSDGW_VBR_SRV.Vbrk_Vbrp" FromRole="ToRole_Vbrk_Vbrp" ToRole="FromRole_Vbrk_Vbrp"/>
+            </EntityType>
+            <Association Name="Vbrk_Vbrp" sap:content-version="1">
+                <End Type="ZDCSDGW_VBR_SRV.Vbrk" Multiplicity="1" Role="FromRole_Vbrk_Vbrp"/>
+                <End Type="ZDCSDGW_VBR_SRV.Vbrp" Multiplicity="*" Role="ToRole_Vbrk_Vbrp"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_Vbrk_Vbrp">
+                        <PropertyRef Name="Vbeln"/>
+                    </Principal>
+                    <Dependent Role="ToRole_Vbrk_Vbrp">
+                        <PropertyRef Name="Vbeln"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZDCSDGW_VBR_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="VbrkSet" EntityType="ZDCSDGW_VBR_SRV.Vbrk" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="VbrpSet" EntityType="ZDCSDGW_VBR_SRV.Vbrp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="Vbrk_VbrpSet" Association="ZDCSDGW_VBR_SRV.Vbrk_Vbrp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="VbrkSet" Role="FromRole_Vbrk_Vbrp"/>
+                    <End EntitySet="VbrpSet" Role="ToRole_Vbrk_Vbrp"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://210.16.199.141:8001/sap/opu/odata/sap/ZDCSDGW_VBR_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://210.16.199.141:8001/sap/opu/odata/sap/ZDCSDGW_VBR_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

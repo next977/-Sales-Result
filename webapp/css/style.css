@@ -1,0 +1,105 @@
+/* Enter your custom styles here */
+.wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 102px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+.wrap * {padding: 0;margin: 0;}
+.wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+.wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+.info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+.info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+.info .close:hover {cursor: pointer;}
+.info .body {position: relative;overflow: hidden;}
+.info .desc {position: relative;margin: 25px 0 0 30px;height: 75px;}
+.desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+.info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+.info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 14px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+.info .link {color: #5085BB;}
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+.category, .category *{margin:0;padding:0;color:rgb(1, 1, 1);border-radius: 5px;vertical-align: top;}   
+
+.category {
+    position:absolute;
+    overflow:hidden;
+    padding:10px 0px 0px 0px;
+    top:10px;
+    left:10px;
+    /* right:10px; */
+    width:200px;
+    z-index:3;
+    /* border:2px solid rgb(153, 197, 233); */
+    font-family:'Malgun Gothic','맑은 고딕',sans-serif;
+    font-size:5px;
+    text-align:center;
+    background-color:rgba(255, 255, 255, 0.8);
+}
+
+.category li{
+    list-style:none;
+    height:20px;
+    padding-top:3px;
+    text-align:left;
+    
+}
+
+.checkDiv {
+    display: inline-block;
+    width: 15px;
+    height: 12px;   
+    border: solid;
+    
+}
+
+.redColor {
+    background-color: #6F89E3; border : 5px solid #6F89E3
+}
+
+.blueColor {
+    background-color: #6EB1FA; border : 5px solid #6EB1FA
+}
+
+.yellowColor {
+    background-color: #69CDF0; border : 5px solid #69CDF0
+}
+
+.uldesign {
+    padding: 0.8rem;
+    border: 1px solid var(--legend-border-color);
+    list-style: none;
+    /* font-size: 1rem; */
+    /* font-size: 10px; */
+    font-family: 'sans-serif', dotum, '돋움', sans-serif;
+    
+}
+
+.uldesign span{
+    list-style:none;
+    font-size: 12px;
+    font-family: 'sans-serif', 'Malgun Gothic', dotum, '돋움', sans-serif;
+    
+    
+    /* padding-bottom:30px; */
+   
+    
+    /* padding-top:30px; */
+    /* text-align:left; */
+    
+}
+
+
+.titledesign {
+    /* padding: 1rem; */
+    /* padding: 10px 0 0 0px; */
+   
+    border: 1px solid var(--legend-border-color);
+    list-style: none;
+    /* font-size: 1rem; */
+    /* padding-top:100px; */
+    /* top:100px; */
+    font-size: 15px;
+    font-family: 'Nanum Gothic', 'sans-serif',  'Malgun Gothic', dotum, '돋움', sans-serif;
+    font-weight: bold;
+    
+
+}
+

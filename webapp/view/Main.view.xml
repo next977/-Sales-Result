@@ -1,0 +1,101 @@
+<mvc:View controllerName="SYNC.zdcsdui5vbr.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+	height="100%"
+    xmlns:f="sap.f"
+    xmlns:l="sap.ui.layout"
+    xmlns:common='sap.suite.ui.commons'>
+   
+		<f:DynamicPage 
+			id="D_dynamicPage"
+			showFooter="true">
+			
+			<!-- DynamicPage Title -->
+			<f:title>
+				<f:DynamicPageTitle>
+					<f:heading>
+						<Title text="판매 실적"/>
+					</f:heading>
+					<f:actions>
+					</f:actions>
+					<f:navigationActions>
+						<Button 
+							icon="{app>/screenSizeButton}"
+							type="Transparent"
+							tooltip="{i18n>main.button.fullscreen}"
+							press="onResizeScreenPress"/>
+					</f:navigationActions>
+				</f:DynamicPageTitle>
+			</f:title>
+
+			<!-- DynamicPage Header -->
+			<f:header>
+				<f:DynamicPageHeader pinnable="true">
+                <l:ResponsiveFlowLayout id="resFlow">
+                    <l:content>
+                        <l:VerticalLayout id="verLay" width="70%">
+                            <l:layoutData>
+                                <l:ResponsiveFlowLayoutData id="resFlowDat" minWidth="500" margin="false" />
+                            </l:layoutData>
+                            <l:content>
+                                <SegmentedButton 
+                                    items="{DynamicType>/typeList}"
+                                    selectedKey="{DynamicType>/selectedType}"
+                                    selectionChange="onTypeChange">
+                                    <items>
+                                        <SegmentedButtonItem
+                                            key="{DynamicType>type}"
+                                            text="{DynamicType>type}" 
+                                            tooltip="{DynamicType>type}"
+                                            width = "70%" />
+                                    </items>
+                                </SegmentedButton>
+                            </l:content>
+                        </l:VerticalLayout>
+                        <l:VerticalLayout id="verLay2" width="50%">
+                            <l:layoutData>
+                                <l:ResponsiveFlowLayoutData id="resFlowDat2" minWidth="500" margin="false" />
+                            </l:layoutData>
+                            <l:content>
+                                    <VBox>
+                                        <!-- <Label id="startDateLabel" text="기간 입력:" labelFor="startDateEvent" textAlign = "Right"/> -->
+                                        <DatePicker id="startDatePicker" width="100%" placeholder="년-월" valueFormat="MM"  
+                                                    displayFormat="yyyy-MM" change="onDatePickerChange" class="sapUiSmallMarginBottom" />
+                                    </VBox>                                                      
+                            </l:content>
+                        </l:VerticalLayout>
+                        <l:VerticalLayout id="verLay3" width="20%">
+        
+                        </l:VerticalLayout>
+                    </l:content>
+                </l:ResponsiveFlowLayout>
+                
+				</f:DynamicPageHeader>
+			</f:header>
+
+			<!-- DynamicPage Content -->
+			<f:content>
+                <l:Grid containerQuery="true">
+                   
+                                
+                                <VBox id="chart">
+                               
+                                <core:Fragment id="DynamicTypeChart" fragmentName="SYNC.zdcsdui5vbr.view.fragment.chart" type="XML"/>
+                                    <layoutData>
+                                        <l:GridData span="XL12 L12 M12 S12" />
+                                    </layoutData>   
+                                </VBox>
+                                <VBox id="map" width="600px" height="500px" visible="false">
+                                    <layoutData>
+                                         <l:GridData span="XL6 L6 M6 S12" />
+                                    </layoutData> 
+                                
+                                </VBox>
+                                
+                </l:Grid>       
+				
+			</f:content>
+
+		</f:DynamicPage>
+</mvc:View>
